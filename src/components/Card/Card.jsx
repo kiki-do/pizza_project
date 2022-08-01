@@ -1,6 +1,4 @@
 import style from './Card.module.scss';
-import pizza from '../../img/1.png';
-import plus from '../../img/plus.png';
 const Card = ({ title, imageUrl, price, id }) => {
   return (
     <div className={style.card}>
