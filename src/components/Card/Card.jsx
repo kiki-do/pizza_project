@@ -20,7 +20,7 @@ const Card = ({ title, imageUrl, price, id }) => {
           <div className={style.card__forRow}>
             <div className={style.card__price}>от {price} ₽ </div>
             <button className={style.card__button}>
-              <img src="img/plus.png" alt="" />
+              <img src="img/plus.svg" alt="+" />
               <div className="add">Добавить</div>
             </button>
           </div>
