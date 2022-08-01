@@ -1,5 +1,5 @@
-import logo from '../../img/logo.png';
-import cart from '../../img/cart.png';
+import logo from '../../../public/img/logo.png';
+import cart from '../../../public/img/cart.png';
 
 import style from './Header.module.scss';
 const Header = () => {
