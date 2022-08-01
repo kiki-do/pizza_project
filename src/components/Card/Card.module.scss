@@ -1,0 +1,103 @@
+.card{
+    margin-left: 50px;
+    &__description{
+        margin-left: 25px;
+
+    }
+    &__title{
+        font-style: normal;
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.01em;
+        color: #000000;
+        margin-top: 10px;
+        margin-bottom: 22px;
+    }
+
+    &__dough{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.015em;
+        color: #2C2C2C;
+        display: flex;
+        flex-direction: row;
+        gap: 60px;
+        margin-left: 25px;
+        padding-top: 15px;
+        &Thick{
+            &:hover{
+                background-color: #FFFFFF;
+                
+            }
+        }
+    }
+
+    &__size{
+        margin-left: 25px;
+        margin-top: 20px;
+        display: flex;
+        gap: 55px;
+        flex-direction: row;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.015em;
+        color: #2C2C2C;
+    }
+
+    &__price{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: 0.015em;
+        color: #000000;
+        margin-top: 25px;
+        text-align: left;
+    }
+
+    &__forRow{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+
+    }
+
+    &__button{
+        background: #FFFFFF;
+        border: 1px solid #EB5A1E;
+        border-radius: 30px;
+        display: flex;
+        width: 140px;
+        height: 40px;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 22px;
+        cursor: pointer;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: #EB5A1E;
+
+    }
+
+    &__board{
+        position: relative;
+        right: 35px;
+        background: #F3F3F3;
+        border-radius: 10px;
+        width: 280px;
+        height: 85px;
+        cursor: pointer;
+
+    }
+
+    
+}
+

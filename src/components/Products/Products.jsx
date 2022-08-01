@@ -13,6 +13,7 @@ const Products = () => {
         <div className={style.products__all}>Закрытые</div>
         <div className={style.products__sort}>Сортировка по:</div>
       </div>
+      <div className={style.products__text}>Все пиццы</div>
     </div>
   );
 };
