@@ -1,6 +1,7 @@
 import style from './Products.module.scss';
+import Card from '../Card/Card';
 
-const Products = () => {
+const Products = ({ items, addToCart }) => {
   return (
     <div className={style.products}>
       <div className={style.line}></div>
@@ -14,6 +15,11 @@ const Products = () => {
         <div className={style.products__sort}>Сортировка по:</div>
       </div>
       <div className={style.products__text}>Все пиццы</div>
+      <div className={style.forCard}>
+        {items.map((item, index) => (
+          <Card addToCart={(obj) => addToCart(obj)} key={index} {...item} />
+        ))}
+      </div>
     </div>
   );
 };

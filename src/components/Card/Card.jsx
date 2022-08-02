@@ -1,5 +1,13 @@
 import style from './Card.module.scss';
-const Card = ({ title, imageUrl, price, id }) => {
+import React from 'react';
+const Card = ({ title, imageUrl, price, addToCart, productId, id }) => {
+  const [add, setAdd] = React.useState(true);
+
+  const onClickToAdd = () => {
+    addToCart({ productId, id, imageUrl, title, price });
+    setAdd(!add);
+  };
+
   return (
     <div className={style.card}>
       <div className={style.card__pizza}>
@@ -21,7 +29,9 @@ const Card = ({ title, imageUrl, price, id }) => {
             <div className={style.card__price}>от {price} ₽ </div>
             <button className={style.card__button}>
               <img src="img/plus.svg" alt="+" />
-              <div className="add">Добавить</div>
+              <div onClick={onClickToAdd} className="add">
+                Добавить
+              </div>
             </button>
           </div>
         </div>

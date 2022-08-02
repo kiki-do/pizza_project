@@ -56,3 +56,10 @@ color: #2C2C2C;
     position: relative;
     bottom: 50px;
 }
+
+.forCard{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 100px;
+  }
+  

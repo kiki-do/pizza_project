@@ -13,6 +13,8 @@
         color: #000000;
         margin-top: 10px;
         margin-bottom: 22px;
+        position: relative;
+        right: 30px;
     }
 
     &__dough{
@@ -98,7 +100,7 @@
 
     &__board{
         position: relative;
-        right: 35px;
+        right: 20px;
         background: #F3F3F3;
         border-radius: 10px;
         width: 280px;
@@ -109,4 +111,5 @@
 
     
 }
+
 

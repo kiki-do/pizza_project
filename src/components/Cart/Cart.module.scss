@@ -1,0 +1,75 @@
+.cart{
+    margin-top: 200px;
+    
+    &__head{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &Title{
+            font-style: normal;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 39px;
+            letter-spacing: 0.01em;
+            color: #000000;
+        }
+
+       
+    }
+    &__trashTitle{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #B6B6B6;
+    }
+
+
+    &__card{
+        margin-left: 420px;
+        margin-top: 80px;
+        display: flex;
+        flex-direction: row;
+        gap: 200px;
+
+
+
+
+   }
+
+}
+
+.leftSide{
+    margin-left: 420px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+
+    img{
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+}
+
+.rightSide{
+    margin-top: 10px;
+    margin-right: 420px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    img{
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+    }
+}
+
+.forLine{
+    height: 1px;
+    background: #f4f4f4;
+    width: 1020px;
+    margin-top: 40px;
+    margin-left: 460px;
+}
