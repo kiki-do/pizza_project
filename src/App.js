@@ -49,10 +49,15 @@ function App() {
     axios
       .get('https://62e77c5193938a545bd2a755.mockapi.io/cart')
       .then((responce) => setAddCart(responce.data));
-
-    axios
-      .get(`https://62e77c5193938a545bd2a755.mockapi.io/items?sortBy=${sortType}&order=desc`)
-      .then((responce) => setItems(responce.data));
+    if (sortType === 'title') {
+      axios
+        .get(`https://62e77c5193938a545bd2a755.mockapi.io/items?sortBy=${sortType}&order=asc`)
+        .then((responce) => setItems(responce.data));
+    } else {
+      axios
+        .get(`https://62e77c5193938a545bd2a755.mockapi.io/items?sortBy=${sortType}&order=desc`)
+        .then((responce) => setItems(responce.data));
+    }
   }, [products, sortType]);
   console.log(sortType);
 
@@ -62,7 +67,7 @@ function App() {
       {/* <Sort /> */}
       <Routes>
         <Route
-          path=""
+          path="/pizza_project/"
           exact
           element={
             <Home
