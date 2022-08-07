@@ -4,55 +4,63 @@
 "id": 1,
 "title": "Чизбургер-пицца",
 "price": 395,
-"imageUrl": "img/1.png"
+"imageUrl": "img/1.png",
+"category": 1
 },
 {
 "productId": 2,
 "id": 2,
 "title": "Сырная",
 "price": 450,
-"imageUrl": "img/2.png"
+"imageUrl": "img/2.png",
+"category": 2
 },
 {
 "productId": 3,
 "id": 3,
 "title": "Реветки по-азиатски",
 "price": 290,
-"imageUrl": "img/3.png"
+"imageUrl": "img/3.png",
+"category": 2
 },
 {
 "productId": 4,
 "id": 4,
 "title": "Сырный цыпленок",
 "price": 385,
-"imageUrl": "img/4.png"
+"imageUrl": "img/4.png",
+"category": 4
 },
 {
 "productId": 5,
 "id": 5,
 "title": "Чизбургер-пицца",
 "price": 395,
-"imageUrl": "img/1.png"
+"imageUrl": "img/1.png",
+"category": 4
 },
 {
 "productId": 6,
 "id": 6,
 "title": "Сырная",
 "price": 450,
-"imageUrl": "img/2.png"
+"imageUrl": "img/2.png",
+"category": 7
 },
 {
 "productId": 7,
 "id": 7,
 "title": "Креветки по-азиатски",
 "price": 290,
-"imageUrl": "img/3.png"
+"imageUrl": "img/3.png",
+"category": 1
 },
 {
 "productId": 8,
 "id": 8,
 "title": "Сырный цыпленок",
 "price": 385,
-"imageUrl": "img/4.png"
+"imageUrl": "img/4.png",
+"category": 6
 }
 ]

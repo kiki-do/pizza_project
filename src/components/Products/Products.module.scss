@@ -4,6 +4,7 @@
 }
 
 .products{
+    position: relative;
     padding: 50px;
     font-family: 'Montserrat';
     font-style: normal;
@@ -12,8 +13,7 @@
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.015em;
-
-color: #2C2C2C;
+    color: #2C2C2C;
     &__position{
         display: flex;
         flex-direction: row;
@@ -23,31 +23,26 @@ color: #2C2C2C;
 
     &__all{
         display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #F9F9F9;
-        border-radius: 30px;
-        width: 10%;
-        height: 46px;
-        
+        flex-direction: row;
     }
 
-    &__sort{
-        position: absolute;
-        right: 25px;
-        top: 20px;
+    li.default{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 115px;
+        background: #F9F9F9;
+        border-radius: 30px;
+        background-size: 100px;
+        cursor: pointer;
+        padding-left: 20px;
+        padding-right: 20px;
     }
+    
+
+    
      
-    &__text{
-        font-style: normal;
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 39px;
-        letter-spacing: 0.01em;
-        color: #000000;
-        padding-top: 40px;
-        text-align: left;   
-    }
+    
     
 }
 .line{
@@ -57,9 +52,20 @@ color: #2C2C2C;
     bottom: 50px;
 }
 
-.forCard{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 100px;
-  }
+
   
+
+  .active{
+    cursor: pointer;
+    transition: .5s all ease-in;
+    background: #282828;
+    color: #fff;
+    margin-right: 150px;
+    border-radius: 30px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}

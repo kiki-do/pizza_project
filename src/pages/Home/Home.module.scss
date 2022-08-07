@@ -1,0 +1,27 @@
+.forCard{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 100px;
+  }
+
+.home{
+    position: relative;
+  &__text{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: 0.01em;
+    color: #000000;
+    padding-top: 40px;
+    text-align: left;
+    margin-bottom: 40px;   
+    margin-left: 50px;
+
+}
+&__sort{
+    position: absolute;
+    right: 25px;
+    top: 20px;
+}
+}

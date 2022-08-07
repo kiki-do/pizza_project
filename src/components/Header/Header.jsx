@@ -3,10 +3,10 @@
 import { Link } from 'react-router-dom';
 
 import style from './Header.module.scss';
-const Header = () => {
+const Header = ({ cartPrice }) => {
   return (
     <div className={style.header}>
-      <Link to="/">
+      <Link to="">
         <img src="img/logo.png" alt="logo" />
       </Link>
       <div className={style.header__logo}>
@@ -15,7 +15,7 @@ const Header = () => {
       </div>
       <Link to="/cart">
         <div className={style.cart}>
-          <div className={style.cart__cost}>520 ₽</div>
+          <div className={style.cart__cost}>{cartPrice} ₽</div>
           <div className={style.cart__count}>
             <img className={style.cartImg} src="img/cart.png" alt="cart" />
           </div>
