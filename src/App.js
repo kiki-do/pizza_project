@@ -67,7 +67,7 @@ function App() {
       {/* <Sort /> */}
       <Routes>
         <Route
-          path="/pizza_project/"
+          path="/home"
           exact
           element={
             <Home

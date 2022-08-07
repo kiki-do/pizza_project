@@ -6,7 +6,7 @@ import style from './Header.module.scss';
 const Header = ({ cartPrice }) => {
   return (
     <div className={style.header}>
-      <Link to="/pizza_project/">
+      <Link to="/home">
         <img src="img/logo.png" alt="logo" />
       </Link>
       <div className={style.header__logo}>
