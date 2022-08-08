@@ -10,56 +10,41 @@ function App() {
   const [items, setItems] = React.useState([]);
   const [addCart, setAddCart] = React.useState([]);
   const [products, setProducts] = React.useState(0);
-  const [sortType, setSortType] = React.useState(0);
-  // const addToCart = (obj) => {
-  //   const findItem = addCart.find((item) => addCart.productId === item.productId);
-  //   if (findItem) {
-  //     axios
-  //       .post(`https://62e77c5193938a545bd2a755.mockapi.io/cart/${obj.id}`, obj)
-  //       .then((responce) => setAddCart(responce.data));
-  //     console.log(obj.id);
-  //     console.log(setAddCart);
-  //   }
-  // };
+  const [sortType, setSortType] = React.useState({ name: 'популярности', sortProperty: 'raiting' });
+  const [isLoading, setIsLoading] = React.useState(true);
 
-  // const removeCart = (obj) => {
-  //   if (addCart.find((item) => item.id === obj.id)) {
-  //     setAddCart((prev) => prev.filter((item) => item.productId !== obj.productId));
-  //     axios
-  //       .delete(`https://62e77c5193938a545bd2a755.mockapi.io/cart/${obj.id}`)
-  //       .then((responce) => setAddCart(responce.data));
-  //   }
-
-  // };
-
-  const cartPrice = addCart.reduce(function (sum, obj) {
-    return obj.price + sum;
-  }, 0);
+  /*Делаю условия для сортировки и категорий с помощью категории, 
+  чтобы на городить все внутри axios*/
 
   React.useEffect(() => {
-    if (products > 0) {
-      axios
-        .get('https://62e77c5193938a545bd2a755.mockapi.io/items?category=' + products)
-        .then((responce) => setItems(responce.data));
-    } else {
-      axios
-        .get('https://62e77c5193938a545bd2a755.mockapi.io/items')
-        .then((responce) => setItems(responce.data));
-    }
+    const category = products > 0 ? `category=${products}` : '';
+    const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
+    const sort = sortType.sortProperty.replace('-', '');
+    setIsLoading(true);
+    axios
+      .get(
+        `https://62e77c5193938a545bd2a755.mockapi.io/items?${category}&sortBy=${sort}&order=${order}`,
+      )
+      .then((responce) => {
+        setItems(responce.data);
+        setIsLoading(false);
+      });
+
+    axios.get('https://62e77c5193938a545bd2a755.mockapi.io/items').then((responce) => {
+      setItems(responce.data);
+      setIsLoading(false);
+    });
+
     axios
       .get('https://62e77c5193938a545bd2a755.mockapi.io/cart')
       .then((responce) => setAddCart(responce.data));
-    if (sortType === 'title') {
-      axios
-        .get(`https://62e77c5193938a545bd2a755.mockapi.io/items?sortBy=${sortType}&order=asc`)
-        .then((responce) => setItems(responce.data));
-    } else {
-      axios
-        .get(`https://62e77c5193938a545bd2a755.mockapi.io/items?sortBy=${sortType}&order=desc`)
-        .then((responce) => setItems(responce.data));
-    }
   }, [products, sortType]);
   console.log(sortType);
+
+  /*Функция для суммирования цены в корзине*/
+  const cartPrice = addCart.reduce(function (sum, obj) {
+    return obj.price + sum;
+  }, 0);
 
   return (
     <div className="">
@@ -76,6 +61,7 @@ function App() {
               setProducts={setProducts}
               sortType={sortType}
               setSortType={setSortType}
+              isLoading={isLoading}
             />
           }
         />

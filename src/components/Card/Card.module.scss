@@ -15,6 +15,7 @@
         margin-bottom: 22px;
         position: relative;
         right: 30px;
+        text-align: center;
     }
 
     &__dough{
@@ -109,6 +110,12 @@
 
     }
 
+    &__pizzaSize{
+        width: 260px;
+        height: 260px;
+        display: flex;
+        margin-left: 35px;
+    }
     
 }
 

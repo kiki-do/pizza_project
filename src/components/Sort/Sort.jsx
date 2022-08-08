@@ -5,9 +5,10 @@ const Sort = ({ value, onChangeSort }) => {
   const [open, setOpen] = React.useState(false);
 
   const list = [
-    { name: 'популярности', sortType: 'productId' },
-    { name: 'цене', sortType: 'price' },
-    { name: 'алфавиту', sortType: 'title' },
+    { name: 'популярности', sortProperty: 'raiting' },
+    { name: 'цене убыванию', sortProperty: 'price' },
+    { name: 'цене возрастаснию', sortProperty: '-price' },
+    { name: 'алфавиту', sortProperty: '-title' },
   ];
 
   const onClickSelected = (i) => {
@@ -39,8 +40,8 @@ const Sort = ({ value, onChangeSort }) => {
             {list.map((obj, index) => (
               <li
                 key={index}
-                onClick={() => onClickSelected(obj.sortType)}
-                className={value === index ? style.active : ''}>
+                onClick={() => onClickSelected(obj)}
+                className={value.sortProperty === obj.sortProperty ? style.active : ''}>
                 {obj.name}
               </li>
             ))}

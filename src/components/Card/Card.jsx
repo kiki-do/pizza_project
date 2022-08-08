@@ -1,6 +1,6 @@
 import style from './Card.module.scss';
 import React from 'react';
-const Card = ({ title, imageUrl, price, addToCart, productId, id }) => {
+const Card = ({ title, imageUrl, price, addToCart, productId, id, sizes }) => {
   const [add, setAdd] = React.useState(true);
 
   const onClickToAdd = () => {
@@ -11,7 +11,7 @@ const Card = ({ title, imageUrl, price, addToCart, productId, id }) => {
   return (
     <div className={style.card}>
       <div className={style.card__pizza}>
-        <img src={imageUrl} alt="pizza" />
+        <img className={style.card__pizzaSize} src={imageUrl} alt="pizza" />
         <div className={style.card__description}>
           <div className={style.card__title}>{title}</div>
           <div className={style.card__board}>
@@ -20,9 +20,9 @@ const Card = ({ title, imageUrl, price, addToCart, productId, id }) => {
               <div className={style.card__doughTraditional}>традиционное</div>
             </div>
             <div className={style.card__size}>
-              <div className={style.card__sizeLow}>26см</div>
-              <div className={style.card__sizeMed}>30см</div>
-              <div className={style.card__sizeHigh}>40см</div>
+              {sizes[0] ? <div className={style.card__sizeLow}>{sizes[0]}см</div> : 'нет'}
+              {sizes[1] ? <div className={style.card__sizeLow}>{sizes[1]}см</div> : 'нет'}
+              {sizes[2] ? <div className={style.card__sizeLow}>{sizes[2]}см</div> : 'нет'}
             </div>
           </div>
           <div className={style.card__forRow}>
