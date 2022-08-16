@@ -32,7 +32,6 @@ function App() {
 
     axios.get('https://62e77c5193938a545bd2a755.mockapi.io/items').then((responce) => {
       setItems(responce.data);
-      setIsLoading(false);
     });
 
     axios
