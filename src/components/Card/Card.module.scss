@@ -94,6 +94,7 @@
             transition: .5s all ease-in;
             path{
                 fill: #FFFFFF;
+                transition: .5s all ease-in-out;
             }
         }
 
@@ -120,3 +121,6 @@
 }
 
 
+span{
+    margin-left: 5px;
+}

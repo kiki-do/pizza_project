@@ -1,0 +1,19 @@
+.search{
+    margin-top: 30px;
+    position: relative;
+    cursor: pointer;
+    margin-left: 150px;
+    &__text{
+        width: 250px;
+        height: 30px;
+        border-spacing: 10px;
+    }
+    &__svg{
+        position: absolute;
+        right: 2px;
+        width: 30px;
+        height: 30px;
+        top: 2px;
+ 
+    }
+}

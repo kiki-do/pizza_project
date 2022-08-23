@@ -1,9 +1,20 @@
 import style from './Cart.module.scss';
 import cart from '../../img/cart2.png';
 import trash from '../../img/trash.png';
-import remove from '../../img/remove.svg';
+import CartItem from '../../components/CartItem/CartItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearItems } from '../../redux/slices/cartSlice';
 
-export function Cart({ items = [], onRemove }) {
+export function Cart() {
+  const items = useSelector((state) => state.cartSlice.items);
+  const { totalPrice } = useSelector((state) => state.cartSlice);
+  const totalCount = items.reduce((sum, item) => item.count + sum, 0);
+  const dispatch = useDispatch();
+
+  const onClickCart = () => {
+    dispatch(clearItems());
+  };
+
   return (
     <div className={style.cart}>
       <div className={style.cart__head}>
@@ -11,33 +22,30 @@ export function Cart({ items = [], onRemove }) {
           <img classname={style.cart__headImg} src={cart} alt="cart" />
           <div className={style.cart__headTitle}>Корзина</div>
         </div>
-        <div className={style.rightSide}>
+        <div onClick={onClickCart} className={style.rightSide}>
           <img classname={style.cart__trash} src={trash} alt="cart" />
           <div className={style.cart__trashTitle}>Очистить корзину</div>
         </div>
       </div>
       <div className={style.forLine}></div>
-      {items.length > 0 ? (
-        <div>
-          {items.map((obj) => (
-            <div className={style.cart__card}>
-              <div className={style.cart__cardImg}>
-                <img src={obj.imageUrl} alt="cart" />
-              </div>
-              <div className={style.cart__cardTitle}>{obj.title}</div>
-              <div className={style.cart__cardQuantity}>1</div>
-              <div className={style.cart__cardPrice}> {obj.price} ₽ </div>
-              <div className={style.cart__cardRemove}>
-                <img onClick={() => onRemove(obj.productId)} src={remove} alt="remove" />
-              </div>
-            </div>
-          ))}{' '}
+      {items.map((item) => (
+        <CartItem key={item.id} {...item} />
+      ))}
+      <div className={style.cart__footer}>
+        <div className={style.cart__end}>
+          <div className={style.cart__endCount}>
+            Всего пицц: <b>{totalCount}шт.</b>
+          </div>
+          <div className={style.cart__endPrice}>
+            Сумма заказа: <span>{totalPrice} ₽</span>
+          </div>
         </div>
-      ) : (
-        <div>
-          <div>Корзина пустая 😕</div>
+
+        <div className={style.cart__buttons}>
+          <div className={style.cart__buttonsOne}>Вернуться назад</div>
+          <div className={style.cart__buttonsTwo}>Оплатить сейчас</div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

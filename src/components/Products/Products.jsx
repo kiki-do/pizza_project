@@ -26,13 +26,3 @@ const Products = ({ value, onClickProducts }) => {
 };
 
 export default Products;
-
-{
-  /* <div className={style.products__all}>Все</div>
-        <div className={style.products__all}>Мясные</div>
-        <div className={style.products__all}>Вегетарианская</div>
-        <div className={style.products__all}>Гриль</div>
-        <div className={style.products__all}>Острые</div>
-        <div className={style.products__all}>Закрытые</div>
-        <div className={style.products__sort}>Сортировка по:</div> */
-}
