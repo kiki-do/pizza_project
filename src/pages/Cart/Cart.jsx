@@ -18,7 +18,7 @@ export function Cart() {
 
   return (
     <div className={style.cart}>
-      {items > 0 ? (
+      {items.length > 0 ? (
         <div>
           <div className={style.cart__head}>
             <div className={style.leftSide}>

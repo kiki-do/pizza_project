@@ -2,7 +2,7 @@ import React from 'react';
 import style from './CartItem.module.scss';
 import remove from '../../img/remove.svg';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItem, minusItem, removeItem } from '../../redux/slices/cartSlice';
 
 const CartItem = ({ id, title, price, count, imageUrl }) => {
@@ -17,7 +17,7 @@ const CartItem = ({ id, title, price, count, imageUrl }) => {
   };
 
   const onClickRemove = () => {
-    if (window.confirm('Are you sure to remove that?')) dispatch(removeItem(id));
+    dispatch(removeItem(id));
   };
 
   return (
@@ -31,9 +31,15 @@ const CartItem = ({ id, title, price, count, imageUrl }) => {
         </div>
         <div className={style.card__quantity}>
           <b>
-            <span onClick={onClickMinus} className={style.minus}>
-              -
-            </span>
+            {count > 0 ? (
+              <span onClick={onClickMinus} className={style.minus}>
+                -
+              </span>
+            ) : (
+              <span className={style.minusDis} disabled={true}>
+                -
+              </span>
+            )}
             {count}
             <span onClick={onClickPlus} className={style.plus}>
               +

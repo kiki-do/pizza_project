@@ -126,6 +126,8 @@ b{
 
 
 .empty{
+    position: relative;
+    bottom: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
