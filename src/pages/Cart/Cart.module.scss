@@ -123,3 +123,35 @@ b{
     margin-top: 40px;
     margin-left: 460px;
 }
+
+
+.empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+
+    &__title{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+        letter-spacing: 0.01em;
+        color: #000000;
+    }
+
+    &__subtitle{
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 145.4%;
+        text-align: center;
+        letter-spacing: 0.01em;
+        color: #777777;
+        margin-bottom: 30px;
+        
+    }
+}

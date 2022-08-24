@@ -11,6 +11,7 @@ const Pagination = ({ onChangePage }) => {
         pageCount={3}
         previousLabel="<"
         renderOnZeroPageCount={null}
+        forcePage={1}
       />
     </div>
   );

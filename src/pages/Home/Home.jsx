@@ -5,21 +5,20 @@ import Products from '../../components/Products/Products';
 import Skeleton from '../../components/Skeleton';
 import { searchContext } from '../../App';
 import React from 'react';
-import axios from 'axios';
 import Pagination from '../../components/Pagination/Pagination';
 import { useSelector, useDispatch } from 'react-redux';
 import { setProducts, setPageCount } from '../../redux/slices/filterSlice';
+import { fetchPizza } from '../../redux/slices/pizzaSlice';
 
 const Home = () => {
-  const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const { search } = React.useContext(searchContext);
-  // const [currentPage, setCurrentPage] = React.useState(1);
 
   //Вытаскиваем из хранилища данные
   const { products, sort, pageCount } = useSelector((state) => state.filterSlice);
   const sortType = sort.sortProperty;
   const dispatch = useDispatch();
+  const { items } = useSelector((state) => state.pizzaSlice);
 
   const onClickProducts = (id) => {
     dispatch(setProducts(id));
@@ -29,31 +28,22 @@ const Home = () => {
     dispatch(setPageCount(number));
   };
 
-  React.useEffect(() => {
+  const getPizza = async () => {
+    setIsLoading(true);
     const category = products > 0 ? `category=${products}` : '';
     const order = sortType.includes('-') ? 'asc' : 'desc';
     const sort = sortType.replace('-', '');
-    setIsLoading(true);
-    axios
-      .get(
-        `https://62e77c5193938a545bd2a755.mockapi.io/items?page=${pageCount}&limit=4&${category}&sortBy=${sort}&order=${order}`,
-      )
-      .then((responce) => {
-        setItems(responce.data);
-        setIsLoading(false);
-      });
+    dispatch(fetchPizza({ category, pageCount, order, sort }));
+    setIsLoading(false);
+  };
 
-    // axios
-    //   .get('https://62e77c5193938a545bd2a755.mockapi.io/cart')
-    //   .then((responce) => setAddCart(responce.data));
+  React.useEffect(() => {
+    getPizza();
   }, [products, sortType, pageCount]);
-
-  /*Функция для суммирования цены в корзине*/
 
   return (
     <div className={style.home}>
       <Products value={products} onClickProducts={onClickProducts} />
-
       <Sort items={items} />
       <div className={style.home__text}>Все пиццы</div>
       <div className={style.forCard}>
