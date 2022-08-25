@@ -1,9 +1,15 @@
 .card{
     margin-left: 50px;
+    @media (max-width: 1550px){
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+     }
     &__description{
         margin-left: 25px;
 
     }
+    
     &__title{
         font-style: normal;
         font-weight: 800;

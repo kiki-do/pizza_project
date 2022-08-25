@@ -2,6 +2,14 @@
     position: absolute;
     right: 110px;
     top: 85px;
+    @media (max-width: 1800px){
+        right: 5px;
+     }
+     @media (max-width: 1280px){
+        position: relative;
+        left: 350px;
+        top: 70px;
+     }
     &__label{
         display: flex;
         cursor: pointer;
@@ -27,7 +35,11 @@
         color: #000000;
         justify-content: end;
         text-align: left;
-        
+        @media (max-width: 1280px){
+            position: relative;
+            left: -350px;
+            top: 0px;
+         }
         
     
     }

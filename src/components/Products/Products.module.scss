@@ -14,6 +14,7 @@
     text-align: center;
     letter-spacing: 0.015em;
     color: #2C2C2C;
+    
     &__position{
         display: flex;
         flex-direction: row;
@@ -24,6 +25,22 @@
     &__all{
         display: flex;
         flex-direction: row;
+        @media (max-width: 1670px){
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+         }
+         @media (max-width: 1550px){
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+         }
+
+         @media (max-width: 940px){
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+         }
     }
 
     li.default{
@@ -37,6 +54,10 @@
         cursor: pointer;
         padding-left: 20px;
         padding-right: 20px;
+        @media (max-width: 1670px){
+            padding-top: 20px;
+            padding-bottom: 20px;
+         }
     }
     
 

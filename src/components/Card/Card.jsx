@@ -1,6 +1,5 @@
 import style from './Card.module.scss';
 import React from 'react';
-import plus from '../../img/plus.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from '../../redux/slices/cartSlice';
 const Card = ({ title, imageUrl, price, addToCart, productId, id, sizes }) => {

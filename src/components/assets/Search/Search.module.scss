@@ -3,6 +3,9 @@
     position: relative;
     cursor: pointer;
     margin-left: 150px;
+    @media (max-width: 1180px){
+        visibility: hidden;
+     }
     &__text{
         width: 250px;
         height: 30px;
