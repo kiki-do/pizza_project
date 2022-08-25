@@ -9,6 +9,7 @@ import Pagination from '../../components/Pagination/Pagination';
 import { useSelector, useDispatch } from 'react-redux';
 import { setProducts, setPageCount } from '../../redux/slices/filterSlice';
 import { fetchPizza } from '../../redux/slices/pizzaSlice';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -51,7 +52,11 @@ const Home = () => {
           ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
           : items
               .filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
-              .map((item, index) => <Card key={index} {...item} />)}
+              .map((item, index) => (
+                <Link key={index} style={{ color: 'white' }} to={`/pizza_project/pizza/${item.id}`}>
+                  <Card {...item} />
+                </Link>
+              ))}
       </div>
       <Pagination onChangePage={onClickPage} />
     </div>

@@ -3,7 +3,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from '../../redux/slices/cartSlice';
 const Card = ({ title, imageUrl, price, addToCart, productId, id, sizes }) => {
-  // const [add, setAdd] = React.useState(true);
   const dispatch = useDispatch();
   const { items, totalPrice } = useSelector((state) => state.cartSlice);
 
