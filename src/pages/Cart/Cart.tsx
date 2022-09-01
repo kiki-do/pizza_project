@@ -1,15 +1,18 @@
+import React from 'react';
 import style from './Cart.module.scss';
 import cart from '../../img/cart2.png';
 import trash from '../../img/trash.png';
 import emptyCart from '../../img/empty_cart.png';
-import CartItem from '../../components/CartItem/CartItem';
+import CartItem from '../../components/CartItem/CartItem.tsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearItems } from '../../redux/slices/cartSlice';
+import { selectCart, selectCartSec } from '../../redux/cart/selectors.ts';
+import { clearItems, CartSliceState } from '../../redux/cart/slice.ts';
+import { Link } from 'react-router-dom';
 
 export function Cart() {
-  const items = useSelector((state) => state.cartSlice.items);
-  const { totalPrice } = useSelector((state) => state.cartSlice);
-  const totalCount = items.reduce((sum, item) => item.count + sum, 0);
+  const items : CartSliceState[]  = useSelector(selectCartSec);
+  const { totalPrice } : CartSliceState = useSelector(selectCart);
+  const totalCount = items.reduce((sum: number, item: any) => item.count + sum, 0);
   const dispatch = useDispatch();
 
   const onClickCart = () => {
@@ -22,17 +25,17 @@ export function Cart() {
         <div>
           <div className={style.cart__head}>
             <div className={style.leftSide}>
-              <img classname={style.cart__headImg} src={cart} alt="cart" />
+              <img className={style.cart__headImg} src={cart} alt="cart" />
               <div className={style.cart__headTitle}>Корзина</div>
             </div>
             <div onClick={onClickCart} className={style.rightSide}>
-              <img classname={style.cart__trash} src={trash} alt="cart" />
+              <img className={style.cart__trash} src={trash} alt="cart" />
               <div className={style.cart__trashTitle}>Очистить корзину</div>
             </div>
           </div>
           <div className={style.forLine}></div>
-          {items.map((item) => (
-            <CartItem key={item.id} {...item} />
+          {items.map((item: any ) => (
+            <CartItem key={item.id} {...item} totalPrice={totalPrice}/>
           ))}
           <div className={style.cart__footer}>
             <div className={style.cart__end}>
@@ -44,7 +47,9 @@ export function Cart() {
               </div>
             </div>
             <div className={style.cart__buttons}>
-              <div className={style.cart__buttonsOne}>Вернуться назад</div>
+              <Link to="/pizza_project" style={{color: 'white', textDecoration: 'none'}}>
+                <div className={style.cart__buttonsOne}>Вернуться назад</div>
+              </Link>
               <div className={style.cart__buttonsTwo}>Оплатить сейчас</div>
             </div>
           </div>

@@ -2,10 +2,21 @@ import React from 'react';
 import style from './CartItem.module.scss';
 import remove from '../../img/remove.svg';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { addItem, minusItem, removeItem } from '../../redux/slices/cartSlice';
+import { useDispatch} from 'react-redux';
+import { addItem, minusItem, removeItem } from '../../redux/cart/slice.ts';
 
-const CartItem = ({ id, title, price, count, imageUrl }) => {
+
+type CartItemProps ={ 
+  id: string;
+  title: string;
+  price: number;
+  count: number;
+  imageUrl: string;
+}
+ 
+
+
+const CartItem: React.FC<CartItemProps> = ({ id, title, price, count, imageUrl}) => {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
@@ -20,7 +31,11 @@ const CartItem = ({ id, title, price, count, imageUrl }) => {
     dispatch(removeItem(id));
   };
 
+
+ 
   return (
+
+    
     <div>
       <div className={style.card}>
         <div>
@@ -31,7 +46,7 @@ const CartItem = ({ id, title, price, count, imageUrl }) => {
         </div>
         <div className={style.card__quantity}>
           <b>
-            {count > 0 ? (
+            {count > 1 ? (
               <span onClick={onClickMinus} className={style.minus}>
                 -
               </span>
@@ -47,7 +62,7 @@ const CartItem = ({ id, title, price, count, imageUrl }) => {
           </b>
         </div>
         <div className={style.card_price}>
-          <b>{price} ₽</b>
+          <b>{price * count} ₽</b>
         </div>
         <div className={style.card__remove}>
           <img onClick={onClickRemove} src={remove} alt="remove" />

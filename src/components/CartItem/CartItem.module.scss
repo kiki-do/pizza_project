@@ -41,5 +41,16 @@
         border-radius: 20px;
         padding-left: 8px;
         padding-right: 8px;
+        color: #979492;
+        &:hover{ 
+            background-color: white;
+            color: #979492;
+        }
     }
+}
+
+span:hover{
+    background-color:  #FE5F1E;
+    color: white;
+    transition: .5s all ease;
 }

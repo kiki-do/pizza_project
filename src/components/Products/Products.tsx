@@ -1,11 +1,21 @@
 import React from 'react';
 import style from './Products.module.scss';
 
-const Products = ({ value, onClickProducts }) => {
+type ProductsProps ={
+  value: number;
+  onClickProducts: (i: number) => void;
+}
+
+
+const Products: React.FC<ProductsProps> = React.memo(({ value, onClickProducts }) => {
   const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
-  const checkCategory = (index) => {
+  
+  
+  const checkCategory = (index: number) => {
     onClickProducts(index);
   };
+
+
   return (
     <div className={style.products}>
       <div className={style.line}></div>
@@ -23,6 +33,6 @@ const Products = ({ value, onClickProducts }) => {
       </div>
     </div>
   );
-};
+})
 
 export default Products;

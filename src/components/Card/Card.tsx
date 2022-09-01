@@ -1,12 +1,30 @@
 import style from './Card.module.scss';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addItem } from '../../redux/slices/cartSlice';
-const Card = ({ title, imageUrl, price, addToCart, productId, id, sizes }) => {
-  const dispatch = useDispatch();
-  const { items, totalPrice } = useSelector((state) => state.cartSlice);
+import {selectCartItemById } from '../../redux/cart/selectors.ts';
+import { Link } from 'react-router-dom';
+import { addItem, CartItem } from '../../redux/cart/slice.ts';
 
-  const cartItem = useSelector((state) => state.cartSlice.items.find((obj) => obj.id === id));
+type CardProps ={ 
+  title: string;
+  imageUrl: string;
+  price: number;
+  id: string;
+  sizes: number[];
+  onClickSizes : (i: number) => void;
+  size: number;
+}
+
+const Card: React.FC<CardProps> = ({ title, imageUrl, price, id, sizes, onClickSizes, size }) => {
+  const dispatch = useDispatch();
+
+  const cartItem : CartItem = useSelector(selectCartItemById(id));
+
+
+
+  const checkSize = (index: number) => {
+    onClickSizes(index);
+  };
 
   const addedCount = cartItem ? cartItem.count : 0;
 
@@ -21,21 +39,33 @@ const Card = ({ title, imageUrl, price, addToCart, productId, id, sizes }) => {
     dispatch(addItem(item));
   };
 
+console.log(id)
+
   return (
     <div className={style.card}>
       <div className={style.card__pizza}>
-        <img className={style.card__pizzaSize} src={imageUrl} alt="pizza" />
-        <div className={style.card__description}>
+        <Link style={{ color: 'white' }} to={`/pizza_project/pizza/${id}`}>
+          <img className={style.card__pizzaSize} src={imageUrl} alt="pizza" />
           <div className={style.card__title}>{title}</div>
+        </Link>
+        <div className={style.card__description}>
           <div className={style.card__board}>
             <div className={style.card__dough}>
               <div className={style.card__doughThick}>тонкое</div>
               <div className={style.card__doughTraditional}>традиционное</div>
             </div>
+            
             <div className={style.card__size}>
-              {sizes[0] ? <div className={style.card__sizeLow}>{sizes[0]}см</div> : 'нет'}
-              {sizes[1] ? <div className={style.card__sizeLow}>{sizes[1]}см</div> : 'нет'}
-              {sizes[2] ? <div className={style.card__sizeLow}>{sizes[2]}см</div> : 'нет'}
+              {sizes.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => checkSize(index)}
+              className={size === index ? style.active : style.default}>
+              {item}см
+            </div>
+          ))}
+
+      </div>
             </div>
           </div>
           <div className={style.card__forRow}>
@@ -59,7 +89,7 @@ const Card = ({ title, imageUrl, price, addToCart, productId, id, sizes }) => {
             </button>
           </div>
         </div>
-      </div>
+        
     </div>
   );
 };

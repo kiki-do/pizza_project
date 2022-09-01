@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import style from './PizzaPage.module.scss';
 
 const PizzaPage = () => {
-  const [pizza, setPizza] = React.useState();
+  const [pizza, setPizza] = React.useState<{imageUrl:string, title: string, price: number}>();
   const { id } = useParams();
   const fetchPizza = async () => {
     try {
@@ -28,7 +28,8 @@ const PizzaPage = () => {
         <img src={pizza.imageUrl} alt="" />
       </div>
       <div className={style.pizza__blockTitle}>{pizza.title}</div>
-      <div className={style.pizza__blockPrice}>{pizza.price} </div>
+      <div className={style.pizza__blockPrice}>{pizza.price} ₽</div>
+      {/* <div className={style.pizza__blockPrice}>{pizza.sizes[0]} см</div> */}
     </div>
   );
 };

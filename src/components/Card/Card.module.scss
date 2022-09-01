@@ -1,9 +1,8 @@
 .card{
-    margin-left: 50px;
+    margin-left: 80px;
     @media (max-width: 1550px){
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-
      }
     &__description{
         margin-left: 25px;
@@ -20,7 +19,7 @@
         margin-top: 10px;
         margin-bottom: 22px;
         position: relative;
-        right: 30px;
+        right: 70px;
         text-align: center;
     }
 
@@ -129,4 +128,8 @@
 
 span{
     margin-left: 5px;
+}
+
+div.active{
+    background-color: #EB5A1E;
 }

@@ -1,25 +1,37 @@
 import style from './Sort.module.scss';
 import React from 'react';
-import { setSort } from '../../redux/slices/filterSlice';
-import { useSelector, useDispatch } from 'react-redux/es/exports';
+import { setSort} from '../../redux/filter/slice.ts';
+import {useDispatch } from 'react-redux/es/exports';
+import {SortState} from '../../redux/filter/types.ts'
 
-const Sort = () => {
+
+type SortProps = {
+  value: SortState
+}
+
+const Sort: React.FC<SortProps> = React.memo(({value}) => {
   const [open, setOpen] = React.useState(false);
 
-  const sort = useSelector((state) => state.filterSlice.sort);
+
   const dispatch = useDispatch();
 
-  const list = [
+  type sortItem = {
+    name: string;
+    sortProperty: string;
+  }
+
+  const list: sortItem[] = [
     { name: 'популярности', sortProperty: 'raiting' },
     { name: 'цене убыванию', sortProperty: 'price' },
     { name: 'цене возрастаснию', sortProperty: '-price' },
     { name: 'алфавиту', sortProperty: '-title' },
   ];
 
-  const onClickSelected = (obj) => {
+  const onClickSelected = (obj: sortItem) => {
     dispatch(setSort(obj));
     setOpen(false);
   };
+
   return (
     <div className={style.sort}>
       <div className={style.sort__label} onClick={() => setOpen(!open)}>
@@ -36,7 +48,7 @@ const Sort = () => {
         </svg>
         <div className={style.sort__labelWord}>
           <b>Сортировка по:</b>
-          <span>{sort.name}</span>
+          <span>{value.name}</span>
         </div>
       </div>
       {open && (
@@ -46,7 +58,7 @@ const Sort = () => {
               <li
                 key={index}
                 onClick={() => onClickSelected(obj)}
-                className={sort.sortProperty === obj.sortProperty ? style.active : ''}>
+                className={value.sortProperty === obj.sortProperty ? style.active : ''}>
                 {obj.name}
               </li>
             ))}
@@ -55,6 +67,6 @@ const Sort = () => {
       )}
     </div>
   );
-};
-
+}
+)
 export default Sort;

@@ -1,13 +1,28 @@
+import React from 'react';
 import logo from '../../img/logo.png';
 import cart from '../../img/cart.png';
 import { Link } from 'react-router-dom';
 import style from './Header.module.scss';
-import Search from '../assets/Search/Search';
+import Search from '../Search/Search.tsx';
 import { useSelector } from 'react-redux';
+import { selectCart } from '../../redux/cart/selectors.ts';
+import { CartSliceState } from '../../redux/cart/slice.ts';
 
 const Header = () => {
-  const { totalPrice, items } = useSelector((state) => state.cartSlice);
-  const totalCount = items.reduce((sum, item) => item.count + sum, 0);
+
+  const isMounted = React.useRef(false);  
+  const { totalPrice, items } : CartSliceState = useSelector(selectCart);
+  const totalCount = items.reduce((sum: number, item: any) => item.count + sum, 0);
+
+
+  React.useEffect(() => {
+    if(isMounted.current){
+      const json = JSON.stringify(items);
+      localStorage.setItem('cart', json)
+    }
+    isMounted.current = true;
+  }, [items])
+
   return (
     <div className={style.header}>
       <Link to="/pizza_project">
@@ -18,7 +33,7 @@ const Header = () => {
         <div className={style.header__subtitle}>самая вкусная пицца во вселенной</div>
       </div>
       <Search />
-      <Link to="/cart">
+      <Link  style={{ color: 'white', textDecoration: 'none' }} to="/cart" >
         <div className={style.cart}>
           <div className={style.cart__cost}>{totalPrice} ₽</div>
           <div className={style.cart__count}>
