@@ -5,7 +5,6 @@ import Products from '../../components/Products/Products.tsx';
 import Skeleton from '../../components/Skeleton.tsx';
 import React from 'react';
 import Pagination from '../../components/Pagination/Pagination.tsx';
-import { searchContext } from '../../App.tsx';
 import { useSelector } from 'react-redux';
 import { setProducts, setPageCount, setSizes } from '../../redux/filter/slice.ts';
 import { filterSort } from '../../redux/filter/selectors.ts';
@@ -14,17 +13,16 @@ import { fetchPizza } from '../../redux/pizza/slice.ts';
 import {useAppDispatch} from '../../redux/store.ts'
 import { PizzaSliceState } from '../../redux/slices/pizzaSlice.ts';
 import { FilterSliceState } from '../../redux/filter/types.ts';
+import { filterSelectSearch } from '../../redux/filter/selectors.ts';
 
 
 const Home = () => {
-  const [isLoading, setIsLoading] = React.useState(true);
-  const { search } = React.useContext(searchContext);
 
   //Вытаскиваем из хранилища данные
-  const { products, sort, pageCount, size } : FilterSliceState = useSelector(filterSort);
+  const { products, sort, pageCount, size, searchValue } : FilterSliceState = useSelector(filterSort);
   const sortType = sort.sortProperty;
   const dispatch = useAppDispatch();
-  const { items }: PizzaSliceState = useSelector(selectPizza);
+  const { items, status }: PizzaSliceState = useSelector(selectPizza);
 
   const onClickProducts = React.useCallback((id: number) => {
     dispatch(setProducts(id));
@@ -38,30 +36,23 @@ const Home = () => {
     dispatch(setPageCount(number));
   };
 
-  console.log(items)
-
-  type pizzaList = { 
-    category: string;
-    pageCount: number;
-    order: string;
-    sort: string;
-  }
-
 
   const getPizza = async () => {
-    setIsLoading(true);
     const category = products > 0 ? `category=${products}` : '';
     const order = sortType.includes('-') ? 'asc' : 'desc';
     const sort = sortType.replace('-', '');
-    dispatch(fetchPizza({ category, pageCount, order, sort, size }));
-    setIsLoading(false);
+    const search = searchValue;
+    dispatch(fetchPizza({ category, pageCount, order, sort, size, search }));
    
   };
 
   React.useEffect(() => {
     getPizza();
 
-  }, [products, sortType, pageCount]);
+  }, [products, sortType, pageCount, searchValue]);
+
+  const cardUI = items.filter((item: any) => item.title.toLowerCase().includes(searchValue.toLowerCase())).map((item: any, index:number) => <Card {...item} key={index}/>)
+  const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />)
 
   return (
     <div className={style.home}>
@@ -69,11 +60,7 @@ const Home = () => {
       <Sort items={items} value={sort} />
       <div className={style.home__text}>Все пиццы</div>
       <div className={style.forCard}>
-        {isLoading
-          ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-          : items
-              .filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
-              .map((item, index:number) => <Card {...item} key={index} onClickSizes={onClickSizes} size={size}/>)}
+        {status === 'loading' ? skeletons : cardUI}
       </div>
       <Pagination onChangePage={onClickPage} pageCount={pageCount} />
     </div>

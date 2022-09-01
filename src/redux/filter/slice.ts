@@ -8,6 +8,7 @@ const initialState: FilterSliceState = {
   sort: { name: 'популярности', sortProperty: 'raiting' },
   pageCount: 1,
   size: 0,
+  searchValue: '',
 };
 
 export const filterSlice = createSlice({
@@ -16,6 +17,10 @@ export const filterSlice = createSlice({
   reducers: {
     setProducts(state, action: PayloadAction<number>) {
       state.products = action.payload;
+    },
+
+    setSearchValue(state, action: PayloadAction<string>) {
+      state.searchValue = action.payload;
     },
 
     setSizes(state, action: PayloadAction<number>) {
@@ -36,7 +41,7 @@ export const filterSlice = createSlice({
 });
 
 
-export const { setProducts, setSort, setPageCount, setSizes } = filterSlice.actions;
+export const { setProducts, setSort, setPageCount, setSizes, setSearchValue } = filterSlice.actions;
 
 
 

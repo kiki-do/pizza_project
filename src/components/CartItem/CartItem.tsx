@@ -12,11 +12,13 @@ type CartItemProps ={
   price: number;
   count: number;
   imageUrl: string;
+  size: number[];
+  type: number[]
 }
  
 
 
-const CartItem: React.FC<CartItemProps> = ({ id, title, price, count, imageUrl}) => {
+const CartItem: React.FC<CartItemProps> = ({ id, title, price, count, imageUrl, size, type}) => {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
@@ -31,7 +33,9 @@ const CartItem: React.FC<CartItemProps> = ({ id, title, price, count, imageUrl})
     dispatch(removeItem(id));
   };
 
-
+  const chooseType = (ans) => {
+    
+  }
  
   return (
 
@@ -43,6 +47,7 @@ const CartItem: React.FC<CartItemProps> = ({ id, title, price, count, imageUrl})
         </div>
         <div className={style.card__title}>
           <b>{title}</b>
+          <p>{size} см, {Number(type) == 1 ? 'традиционное' : 'тонкое'}</p>
         </div>
         <div className={style.card__quantity}>
           <b>

@@ -8,7 +8,8 @@ export type SortState = {
     products: number; 
     pageCount: number;
     sort: SortState;
-    size: number
+    size: number;
+    searchValue: string;
   }
   
   

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {selectCartItemById } from '../../redux/cart/selectors.ts';
 import { Link } from 'react-router-dom';
 import { addItem, CartItem } from '../../redux/cart/slice.ts';
+import { type } from '@testing-library/user-event/dist/type';
 
 type CardProps ={ 
   title: string;
@@ -11,35 +12,35 @@ type CardProps ={
   price: number;
   id: string;
   sizes: number[];
-  onClickSizes : (i: number) => void;
-  size: number;
+  types: number[];
 }
 
-const Card: React.FC<CardProps> = ({ title, imageUrl, price, id, sizes, onClickSizes, size }) => {
+const Card: React.FC<CardProps> = ({ title, imageUrl, price, id, sizes, types}) => {
   const dispatch = useDispatch();
 
   const cartItem : CartItem = useSelector(selectCartItemById(id));
 
+  const [activeSize, setActiveSize] = React.useState(0);
+  const [activeType, setActiveType] = React.useState(0);
 
-
-  const checkSize = (index: number) => {
-    onClickSizes(index);
-  };
+  const doughNames = ['тонкое', 'традиционное']
 
   const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickToAdd = () => {
-    const item = {
+    const item:CartItem = {
       id,
       title,
       price,
       imageUrl,
       sizes,
+      size: sizes[activeSize],
+      type: types[activeType],
+
     };
     dispatch(addItem(item));
   };
 
-console.log(id)
 
   return (
     <div className={style.card}>
@@ -50,22 +51,29 @@ console.log(id)
         </Link>
         <div className={style.card__description}>
           <div className={style.card__board}>
-            <div className={style.card__dough}>
-              <div className={style.card__doughThick}>тонкое</div>
-              <div className={style.card__doughTraditional}>традиционное</div>
-            </div>
+           <ul className={style.card__dough}>
+              {types.map((type) => (
+            <li 
+              style = {{listStyleType: "none"}}
+              key={type}
+              onClick={() => setActiveType(type)}
+              className={activeType === type ? style.active__dough : style.default}>
+              {doughNames[type]}
+            </li>
+          ))}  </ul>
             
-            <div className={style.card__size}>
+            <ul className={style.card__size}>
               {sizes.map((item, index) => (
-            <div
-              key={index}
-              onClick={() => checkSize(index)}
-              className={size === index ? style.active : style.default}>
-              {item}см
-            </div>
+            <li
+              style = {{listStyleType: "none"}}
+              key={item}
+              onClick={() => setActiveSize(index)}
+              className={activeSize === index ? style.active : style.default}>
+              {item} см
+            </li>
           ))}
 
-      </div>
+      </ul>
             </div>
           </div>
           <div className={style.card__forRow}>

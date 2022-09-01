@@ -1,24 +1,24 @@
 import style from './Search.module.scss';
-import { searchContext } from '../../App.tsx';
 import React from 'react';
 import debounce from 'lodash.debounce';
+import { setSearchValue } from '../../redux/filter/slice.ts';
+import { useDispatch } from 'react-redux';
 
 
 const Search = () => {
   const searchRef = React.useRef<HTMLInputElement>(null);
-  const [value, setValue] = React.useState('');
-  const  {setSearch}  = React.useContext(searchContext);
+  const [value, setValue] = React.useState<string>('');
+  const dispatch = useDispatch();
 
   const removeSearch = () => {
+    dispatch(setSearchValue(''));
     setValue('');
-    setSearch('');
-    if(searchRef.current)
-      {searchRef.current.focus();}
+    searchRef.current?.focus();
   };
 
   const searchDebounce = React.useCallback(
-    debounce((str) => {
-      setSearch(str);
+    debounce((str: string) => {
+      dispatch(setSearchValue(str));
     }, 250),
     [],
   );
@@ -38,7 +38,7 @@ const Search = () => {
           placeholder="Поиск пицц..."
           onChange={onChangeInput}
           value={value}></input>
-        {value.length > 0 ? (
+        {value && (
           <svg
             className={style.search__svg}
             onClick={removeSearch}
@@ -53,8 +53,6 @@ const Search = () => {
               fill="#636363"
             />
           </svg>
-        ) : (
-          ''
         )}
       </label>
     </div>

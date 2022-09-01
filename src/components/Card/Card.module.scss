@@ -32,9 +32,8 @@
         color: #2C2C2C;
         display: flex;
         flex-direction: row;
-        gap: 60px;
-        margin-left: 25px;
-        padding-top: 15px;
+        margin-left: -30px;
+        gap: 30px;
         &Thick{
             &:hover{
                 background-color: #FFFFFF;
@@ -44,10 +43,10 @@
     }
 
     &__size{
-        margin-left: 25px;
+
         margin-top: 20px;
         display: flex;
-        gap: 55px;
+        gap: 30px;
         flex-direction: row;
         font-style: normal;
         font-weight: 700;
@@ -55,6 +54,7 @@
         line-height: 17px;
         letter-spacing: 0.015em;
         color: #2C2C2C;
+        justify-content: start;
     }
 
     &__price{
@@ -108,7 +108,7 @@
     &__board{
         position: relative;
         right: 20px;
-        background: #F3F3F3;
+        background: #d6d6d6;
         border-radius: 10px;
         width: 280px;
         height: 85px;
@@ -122,14 +122,28 @@
         display: flex;
         margin-left: 35px;
     }
-    
+  
 }
 
+  li.active {
+      background-color: #ffffff;
+      width: 100px;
+      height: 40px;
+      text-align: center;
+      border-radius: 8px;
+      transition: .5s all ease;
+
+}
 
 span{
     margin-left: 5px;
 }
 
-div.active{
-    background-color: #EB5A1E;
+.active__dough{
+    background-color: #ffffff;
+    width: 120px;
+    height: 25px;
+    text-align: center;
+    border-radius: 8px;
+    transition: .5s all ease;
 }

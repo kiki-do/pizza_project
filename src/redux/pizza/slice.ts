@@ -3,7 +3,7 @@ import axios from 'axios';
 import { fetchPizzaState, PizzaItems, PizzaSliceState } from './types';
 
 export const fetchPizza = createAsyncThunk<PizzaItems[], fetchPizzaState>('users/fetchPizza', async (params) => {
-  const { sort, order, category, pageCount } = params;
+  const { sort, order, category, pageCount, search } = params;
   const response = await axios.get(
     `https://62e77c5193938a545bd2a755.mockapi.io/items?page=${pageCount}&limit=4&${category}&sortBy=${sort}&order=${order}`,
   );

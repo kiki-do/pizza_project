@@ -9,6 +9,7 @@ export interface PizzaSliceState{
       pageCount: number;
       order: string;
       sort: string;
+      search: string;
   }
   
   export type PizzaItems = {
