@@ -3,10 +3,10 @@
 
 ## Стек технологий
   
-  HTML
-  SASS
-  React
-  Redux-Toolkit
+  HTML,
+  SASS,
+  React,
+  Redux-Toolkit,
   TypeScript
   
 
