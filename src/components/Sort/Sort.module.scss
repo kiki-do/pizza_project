@@ -20,6 +20,7 @@
         line-height: 17px;
         letter-spacing: 0.015em;
         color: #2C2C2C;
+        position: relative;
         &Word{
             margin-left: 15px;
         }
@@ -36,8 +37,8 @@
         justify-content: end;
         text-align: left;
         @media (max-width: 1280px){
-            position: relative;
-            left: -350px;
+            position: absolute;
+            left: 0px;
             top: 0px;
          }
         
@@ -70,9 +71,6 @@
         color: #FE5F1E;
         background: rgba(254, 95, 30, 0.05); 
         background-size: contain;  
-        svg g{
-            transform: rotate(90deg);
-        } 
     }
 
     span{

@@ -62,6 +62,9 @@ export function Cart() {
             Для того, чтобы заказать пиццу, перейди на главную страницу.
           </div>
           <img className={style.empty__img} src={emptyCart} alt="" />
+          <Link to="/pizza_project" style={{color: 'white', textDecoration: 'none'}}>
+            <div className={style.cart__buttonsThree}>Вернуться назад</div>
+          </Link>
         </div>
       )}
     </div>

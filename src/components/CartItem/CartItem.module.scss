@@ -5,13 +5,28 @@
     grid-gap: 50px;
     grid-template-columns: (repeat(5, 1fr));
     margin-left: 270px;
+    @media (max-width: 992px) {
+            font-size: 12px;
+            text-align: center;
+        }
     &__img{
         display: flex;
         position: relative;
         top: -20px;
         width: 80px;
         height: 80px;
+        @media (max-width: 992px) {
+                width: 60px;
+                height: 60px;
+                top: -10px;
+            }
 
+    }
+
+    &_price{
+        @media (max-width: 992px) {
+                font-size: 15px;
+        }
     }
 }
 
@@ -57,5 +72,8 @@ span:hover{
 
 p{
     margin-left: 15px;
+    @media (max-width: 992px) {
+            font-size: 10px;
+        }
     
 }

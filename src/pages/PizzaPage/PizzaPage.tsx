@@ -27,11 +27,11 @@ const PizzaPage = () => {
       <div className={style.pizza__blockImg}>
         <img src={pizza.imageUrl} alt="" />
       </div>
-      <div className={style.pizza__blockTitle}>{pizza.title}</div>
-      <div className={style.pizza__blockPrice}>{pizza.price} ₽</div>
-      <div className={style.pizza__blockPrice}>{pizza.size}</div>
-      
-      {/* <div className={style.pizza__blockPrice}>{pizza.sizes[0]} см</div> */}
+      <div className={style.pizza__blockRight}>
+        <div className={style.pizza__blockTitle}><b>Название</b>: {pizza.title}</div>
+        <div className={style.pizza__blockDescription}> <b>Описание</b>: Пи́цца (итал. Pizza) — традиционное итальянское блюдо в виде круглой дрожжевой лепёшки, выпекаемой с уложенной сверху начинкой из томатного соуса, сыра и зачастую других ингредиентов, таких как мясо, овощи, грибы и других продуктов.</div>
+        <div className={style.pizza__blockPrice}><b>Цена</b>: {pizza.price} ₽</div>
+      </div>
     </div>
   );
 };

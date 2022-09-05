@@ -18,8 +18,8 @@
         color: #000000;
         margin-top: 10px;
         margin-bottom: 22px;
-        position: relative;
-        right: 70px;
+        display: flex;
+        justify-content: center;
         text-align: center;
     }
 
@@ -44,7 +44,7 @@
 
     &__size{
 
-        margin-top: 20px;
+        margin-top: 50px;
         display: flex;
         gap: 30px;
         flex-direction: row;
@@ -55,6 +55,7 @@
         letter-spacing: 0.015em;
         color: #2C2C2C;
         justify-content: start;
+        align-items: center;
     }
 
     &__price{
@@ -80,7 +81,7 @@
         border: 1px solid #EB5A1E;
         border-radius: 30px;
         display: flex;
-        width: 140px;
+        width: 160px;
         height: 40px;
         gap: 15px;
         justify-content: center;
@@ -107,12 +108,34 @@
 
     &__board{
         position: relative;
-        right: 20px;
+        right: 0px;
         background: #d6d6d6;
         border-radius: 10px;
         width: 280px;
-        height: 85px;
+        height: 110px;
         cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        li:nth-child(2) {
+                position: absolute;
+                right: 15px;
+                display: flex;
+                justify-content: end;
+            }
+        
+            li:nth-child(3) {
+                position: absolute;
+                left: 115px;
+
+            }
+        
+            li:nth-child(1) {
+                position: absolute;
+                display: flex;
+                left: 15px;
+                align-items: center;
+            }
+
 
     }
 
@@ -127,13 +150,17 @@
 
   li.active {
       background-color: #ffffff;
-      width: 100px;
-      height: 40px;
-      text-align: center;
       border-radius: 8px;
       transition: .5s all ease;
-
+      width: 50px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+    
 }
+
+
+
 
 span{
     margin-left: 5px;
@@ -141,9 +168,10 @@ span{
 
 .active__dough{
     background-color: #ffffff;
-    width: 120px;
-    height: 25px;
+    border: 1px solid #fff;
     text-align: center;
     border-radius: 8px;
     transition: .5s all ease;
+    border-width: 5px;
 }
+

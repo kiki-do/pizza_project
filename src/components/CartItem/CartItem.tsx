@@ -32,10 +32,6 @@ const CartItem: React.FC<CartItemProps> = ({ id, title, price, count, imageUrl, 
   const onClickRemove = () => {
     dispatch(removeItem(id));
   };
-
-  const chooseType = (ans) => {
-    
-  }
  
   return (
 

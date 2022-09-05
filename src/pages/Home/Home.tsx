@@ -28,9 +28,6 @@ const Home = () => {
     dispatch(setProducts(id));
   }, [])
 
-  const onClickSizes = React.useCallback((id: number) => {
-    dispatch(setSizes(id));
-  }, [])
 
   const onClickPage = (number: number) => {
     dispatch(setPageCount(number));

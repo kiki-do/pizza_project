@@ -28,7 +28,7 @@
         @media (max-width: 1670px){
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 50px;
+            gap: 30px;
          }
          @media (max-width: 1550px){
             display: grid;
@@ -48,19 +48,13 @@
         justify-content: center;
         align-items: center;
         margin-right: 115px;
+        height: 46px;
         background: #F9F9F9;
         border-radius: 30px;
-        background-size: 100px;
         cursor: pointer;
         padding-left: 20px;
         padding-right: 20px;
-        @media (max-width: 1670px){
-            padding-top: 20px;
-            padding-bottom: 20px;
-         }
     }
-    
-
     
      
     
@@ -81,7 +75,7 @@
     transition: .5s all ease-in;
     background: #282828;
     color: #fff;
-    margin-right: 150px;
+    margin-right: 115px;
     border-radius: 30px;
     height: 46px;
     display: flex;

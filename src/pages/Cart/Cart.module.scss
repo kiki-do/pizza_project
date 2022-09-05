@@ -12,9 +12,27 @@
             line-height: 39px;
             letter-spacing: 0.01em;
             color: #000000;
+            @media (max-width: 992px) {
+                    
+                    font-size: 15px;
+                }
+        }
+       
+    }
+
+    .rightSide{
+        @media(max-width: 1350px){
+            position: relative;
+            left: 150px;
         }
 
-       
+        @media(max-width: 1180px) {
+            position: relative;
+            left: 250px;
+        }
+     
+        
+
     }
     &__trashTitle{
         font-style: normal;
@@ -22,6 +40,10 @@
         font-size: 16px;
         line-height: 19px;
         color: #B6B6B6;
+
+        @media (max-width: 992px) {
+                font-size: 15px;
+            }
     }
 
 
@@ -41,6 +63,23 @@
     max-width: 1400px;
     margin: 0 auto;
 
+    @media (max-width: 992px) {
+        max-width: 792px;
+        margin: 0 auto;
+        position: relative;
+        left: 100px;
+    }
+
+        @media (max-width: 480px) {
+
+            position: relative;
+            left: 200px;
+        }
+    @media (max-width: 480px) {
+        position: relative;
+        left: 400px;
+    }
+
 }
 
 &__end{
@@ -49,15 +88,24 @@
     justify-content: space-between;
     margin-bottom: 70px;
     font-size: 22px;
+    @media (max-width: 992px) {
+            font-size: 12px;
+        }
 }
 
 span{
     color: #FE5F1E;
     font-weight: 700;
+    @media (max-width: 992px) {
+            font-size: 12px;
+        }
 }
 
 b{
     margin-left: 10px;
+    @media (max-width: 992px) {
+        font-size: 12px;
+}
 }
 
 &__buttons{
@@ -70,6 +118,16 @@ b{
     height: 55px;
     color: #fff;
     border-color: #FE5F1E;
+    @media (max-width: 992px) {
+            width: 150px;
+            height: 55px;
+        }
+    @media (max-width: 480px) {
+        width: 120px;
+        height: 35px;
+        text-align: center;
+        font-size: 10px;
+    }
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,9 +141,40 @@ b{
     color: #CACACA;
     display: flex;
     align-items: center;
+    font-weight: 500;
     justify-content: center;
     cursor: pointer;
+    @media (max-width: 992px) {
+            width: 150px;
+            height: 55px;
+        }
+    @media (max-width: 480px) {
+        width: 120px;
+        height: 35px;
+        text-align: center;
+        font-size: 10px;
+    }
  }
+
+ &Three {
+    margin-top: 50px;
+     border: 1px solid #D3D3D3;
+     border-radius: 30px;
+     width: 211px;
+     height: 55px;
+     background: #282828;
+     font-weight: 500;
+     color: #fff;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+    @media (max-width: 480px) {
+            position: relative;
+            left: 120px;
+        }
+ }
+
 }
 
 }
@@ -100,6 +189,7 @@ b{
         width: 30px;
         cursor: pointer;
     }
+
 }
 
 .rightSide{
@@ -122,6 +212,11 @@ b{
     width: 1020px;
     margin-top: 40px;
     margin-left: 460px;
+    @media (max-width: 1280px) {
+        position: relative;
+        right:270px;
+
+    }
 }
 
 
@@ -142,6 +237,11 @@ b{
         line-height: 39px;
         letter-spacing: 0.01em;
         color: #000000;
+        @media (max-width: 480px) {
+                position: relative;
+                left: 120px;
+            }
+        
     }
 
     &__subtitle{
@@ -154,6 +254,20 @@ b{
         letter-spacing: 0.01em;
         color: #777777;
         margin-bottom: 30px;
+        @media (max-width: 480px) {
+                position: relative;
+                left: 120px;
+            }
         
+    }
+
+    &__img{
+        @media (max-width: 480px){
+            transform: scale(.7);
+            display: flex;
+            justify-content: center;
+            position: relative;
+            left: 120px;
+        }
     }
 }
