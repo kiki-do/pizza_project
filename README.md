@@ -1,10 +1,10 @@
  Сайт для заказа пиццы. 
-____
+#
 
  Ссылка на демо: https://kiki-do.github.io/pizza_project/
-____
+#
  Стек технологии: HTML, SASS, React, Redux-Toolkit,TypeScript
-____ 
+#
   
  
   
