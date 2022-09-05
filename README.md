@@ -1,15 +1,15 @@
-# Сайт для заказа пиццы. 
+ Сайт для заказа пиццы. 
 ____
 
-## Ссылка на демо: https://kiki-do.github.io/pizza_project/
+ Ссылка на демо: https://kiki-do.github.io/pizza_project/
 ____
-## Стек технологии: HTML, SASS, React, Redux-Toolkit,TypeScript
+ Стек технологии: HTML, SASS, React, Redux-Toolkit,TypeScript
 ____ 
   
  
   
 
-## Реализовано:
+ Реализовано:
 - Сортировка по различным параметрам, категориям 
 - Поиск по названию 
 - Возможность перейти на страницу при нажатии на изображение    
