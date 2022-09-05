@@ -5,7 +5,11 @@
  https://kiki-do.github.io/pizza_project/
 
  ## Стек технологии: 
- HTML, SASS, React, Redux-Toolkit,TypeScript
+ -HTML 
+ -SASS 
+ -React 
+ -Redux-Toolkit
+ -TypeScript
 
   
  
