@@ -25,9 +25,7 @@
         letter-spacing: 0.015em;
         color: #2C2C2C;
         position: relative;
-        &Word{
-            margin-left: 15px;
-        }
+    
     }
 
     &__popup{
@@ -35,6 +33,7 @@
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
+        max-width: 100%;
         line-height: 17px;
         letter-spacing: 0.015em;
         color: #000000;
@@ -50,22 +49,22 @@
     li{
         list-style-type: none;
         margin-top: 10px;
-        margin-right: 20px;
         height: 20px;
         position: relative;
         right: 35px;
+        max-width: max-content;
         cursor: pointer;
-        &:hover{
-            background: rgba(254, 95, 30, 0.05); 
-            border-radius: 10px;
-        }
+        // &:hover{
+        //     background: rgba(254, 95, 30, 0.05); 
+        //     border-radius: 10px;
+        // }
     }
 
     ul{
         background: #FFFFFF;
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
         border-radius: 10px;
-        transition: .5s all ease-in-out;
+        width: 148px;
     }
 
     .active{
@@ -74,9 +73,7 @@
         font-size: 14px;
         line-height: 17px;
         letter-spacing: 0.015em;
-        color: #FE5F1E;
-        background: rgba(254, 95, 30, 0.05); 
-        background-size: contain;  
+        max-width: 100%;
     }
 
     span{
