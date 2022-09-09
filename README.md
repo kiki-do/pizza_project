@@ -2,7 +2,7 @@
 
 
  ## Ссылка на демо: 
-  kiki-do.github.io/pizza_project/
+  https://kiki-do.github.io/pizza_project
 
  ## Стек технологии: 
  - HTML 
