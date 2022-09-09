@@ -1,8 +1,8 @@
-# Сайт для заказа пицыцы
+# Сайт для заказа пиццы
 
 
  ## Ссылка на демо: 
-  https://kiki-do.github.io/react-sneakers/
+  kiki-do.github.io/pizza_project/
 
  ## Стек технологии: 
  - HTML 
