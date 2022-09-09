@@ -35,7 +35,6 @@ const Sort: React.FC<SortProps> = React.memo(({value}) => {
   return (
     <div className={style.sort}>
       <div className={style.sort__label} onClick={() => setOpen(!open)}>
-      
         <div className={style.sort__labelWord}>
           <b>Сортировка по:</b>
           <span>{value.name}</span>
