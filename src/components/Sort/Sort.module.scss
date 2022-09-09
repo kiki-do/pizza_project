@@ -10,6 +10,10 @@
         left: 350px;
         top: 70px;
      }
+
+    @media (max-width: 1550px) {
+        right: 155px;
+    }
     &__label{
         display: flex;
         cursor: pointer;

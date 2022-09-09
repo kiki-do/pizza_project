@@ -18,7 +18,7 @@ type CartItemProps ={
  
 
 
-const CartItem: React.FC<CartItemProps> = ({ id, title, price, count, imageUrl, size, type}) => {
+const CartItem: React.FC<CartItemProps> = ({ id, title, price, count, imageUrl, type}) => {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
@@ -43,7 +43,7 @@ const CartItem: React.FC<CartItemProps> = ({ id, title, price, count, imageUrl, 
         </div>
         <div className={style.card__title}>
           <b>{title}</b>
-          <p>{size} см, {Number(type) == 1 ? 'традиционное' : 'тонкое'}</p>
+          <p> {Number(type) === 1 ? 'традиционное' : 'тонкое'}</p>
         </div>
         <div className={style.card__quantity}>
           <b>

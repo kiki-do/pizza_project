@@ -61,19 +61,6 @@ const Card: React.FC<CardProps> = ({ title, imageUrl, price, id, sizes, types}) 
               {doughNames[type]}
             </li>
           ))}  </ul>
-            
-            <ul className={style.card__size}>
-              {sizes.map((item, index) => (
-            <li
-              style = {{listStyleType: "none"}}
-              key={item}
-              onClick={() => setActiveSize(index)}
-              className={activeSize === index ? style.active : style.default}>
-              {item} см
-            </li>
-          ))}
-
-      </ul>
             </div>
           </div>
           <div className={style.card__forRow}>
